@@ -5,7 +5,6 @@ import { firestoreConnect } from 'react-redux-firebase'
 
 class CheckIns extends Component {
     render() {
-        console.log(this.props)
         return (
             <div className="checkIns">
                 <h1 className="checkInDate" style={{ 'background-color': '#f15d5d', 'color': 'white'}}>{this.props.checkInDate.toUpperCase()}</h1>

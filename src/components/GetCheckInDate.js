@@ -11,7 +11,6 @@ class GetCheckInDate extends Component {
 
 
     render() {
-        console.log(this.props);
         return (
             <div className="GetCheckInDate">
                 <h2>Input Date</h2>

@@ -114,50 +114,51 @@ class CheckIn extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
-            <div className="checkInContainer">
-                {
-                    this.state.nextState != 4 ? <Header
+            <div className="mainContainer">
+                <div className="checkInContainer">
+                    {
+                        this.state.nextState != 4 ? <Header
+                            nextState={this.state.nextState}
+                        /> : null
+                    }
+                    <PickAffiliation
+                        setAffiliation={this.setAffiliation}
+                        affiliation={this.state.affiliation}
                         nextState={this.state.nextState}
-                    /> : null
-                }
-                <PickAffiliation
-                    setAffiliation={this.setAffiliation}
-                    affiliation={this.state.affiliation}
-                    nextState={this.state.nextState}
-                />
-                <UserInfo
-                    location={{state:this.state.state, country: this.state.country}}
-                    getUserInfo={this.getUserInfo}
-                    nextState={this.state.nextState}
-                    affiliation={this.state.affiliation}
-                />
-                <FinalInfo
-                    getFinalData={this.getFinalData}
-                    nextState={this.state.nextState}
-                    name={this.state.name}
-                    affiliation={this.state.affiliation}
-                />
-                <br/>
-                {this.state.firstTime !== '' && (this.state.nextState === 3) ? <div className="checkIn center">
-                    <button className="submit center btn" onClick={this.sendData}>Check In</button>
-                </div> : null}
+                    />
+                    <UserInfo
+                        location={{ state: this.state.state, country: this.state.country }}
+                        getUserInfo={this.getUserInfo}
+                        nextState={this.state.nextState}
+                        affiliation={this.state.affiliation}
+                    />
+                    <FinalInfo
+                        getFinalData={this.getFinalData}
+                        nextState={this.state.nextState}
+                        name={this.state.name}
+                        affiliation={this.state.affiliation}
+                    />
+                    <br />
+                    {this.state.firstTime !== '' && (this.state.nextState === 3) ? <div className="checkIn center">
+                        <button className="submit center btn" onClick={this.sendData}>Check In</button>
+                    </div> : null}
 
-                {
-                    this.state.nextState === 4 ? 
-                        <div className="thankYouScreen center">
-                            <div className="center">
-                                <span><i className="fa fa-paper-plane" aria-hidden="true"></i></span>
-                                <h1>Thank You!</h1>
-                                <br />
-                                <h1>God Bless!</h1>
-                            </div>
-                        </div> : null 
-                }
-                {
-                    this.state.nextState > 1 && this.state.nextState < 4 ? <button className="backButton" onClick={() => this.setNextState()}><span><i className="fas fa-arrow-left"></i></span>Back</button> : null
-                }
+                    {
+                        this.state.nextState === 4 ?
+                            <div className="thankYouScreen center">
+                                <div className="center">
+                                    <span><i className="fa fa-paper-plane" aria-hidden="true"></i></span>
+                                    <h1>Thank You!</h1>
+                                    <br />
+                                    <h1>God Bless!</h1>
+                                </div>
+                            </div> : null
+                    }
+                    {
+                        this.state.nextState > 1 && this.state.nextState < 4 ? <button className="backButton" onClick={() => this.setNextState()}><span><i className="fas fa-arrow-left"></i></span>Back</button> : null
+                    }
+                </div>
             </div> 
         )
     }
