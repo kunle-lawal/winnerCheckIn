@@ -1,148 +1,8 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
 @import url("https://fonts.googleapis.com/css?family=Lato:900");
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-/*# sourceMappingURL=reset.css.map */
 /* COLOR PALLET */
 /* MEDIA QUERY BREAK POINTS */
 select {
@@ -752,6 +612,56 @@ body .mainContainer .checkInContainer .thankYouScreen .center span {
 body .mainContainer .checkInContainer .thankYouScreen .center span i {
   color: #f15d5d;
   font-size: 50px;
+}
+body .tableContainer {
+  min-height: 100vh;
+  padding-top: 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: auto;
+}
+body .tableContainer .wrapTable {
+  width: 90%;
+  height: 600px;
+  overflow: auto;
+  overflow-y: auto;
+  margin: auto;
+  background-color: white;
+  box-shadow: 5px 5px 3px #b13f3f;
+}
+body .tableContainer .wrapTable .tables table {
+  min-width: 2000px;
+  margin: auto;
+}
+body .tableContainer .wrapTable .tables table thead tr {
+  box-shadow: 0px 2px 3px #efefef;
+}
+body .tableContainer .wrapTable .tables table thead tr th {
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: initial;
+  min-width: 200px;
+  border-left: 1px solid #222;
+}
+body .tableContainer .wrapTable .tables table tbody tr:nth-child(2n) {
+  background-color: #efefef !important;
+  color: #222;
+}
+body .tableContainer .wrapTable .tables table tbody tr td {
+  border-radius: initial;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+  min-width: 200px;
+  border-left: 1px solid #222;
+}
+body .tableContainer .wrapTable .table1 {
+  position: relative;
+}
+body .tableContainer .wrapTable .table1 table thead {
+  background-color: white;
 }
 
 /*# sourceMappingURL=main.css.map */

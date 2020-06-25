@@ -1,4 +1,4 @@
-@import "reset.scss";
+// @import "reset.scss";
 @import "global.scss";
 
 * {
@@ -582,6 +582,90 @@ body {
                             font-size: 50px;
                             // margin-top: 30px;
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    .tableContainer {
+        // max-width: 90%;
+        min-height: 100vh;
+        padding-top: 10px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin: auto;
+        
+        .wrapTable {
+            width: 90%;
+            height: 600px;
+            overflow: auto;
+            overflow-y: auto;
+            margin: auto;
+            background-color: white;
+            box-shadow: 5px 5px 3px #b13f3f;
+            .tables {
+                table {
+                    min-width:2000px;
+                    margin: auto;
+        
+                    thead {
+                        tr {
+                            box-shadow: 0px 2px 3px #efefef;
+                            th {
+                                padding-top:20px;
+                                padding-left: 30px;
+                                padding-right: 30px;
+                                border-radius: initial;
+                                min-width: 200px;
+                                border-left: 1px solid #222;
+                                // border-right: 1px solid #222;
+                                
+                                &:nth-child(1) {
+                                    // min-width: 200px;
+                                }
+    
+                                &:nth-child(2) {
+                                    // padding-left: 300px;
+                                }
+                            }
+                        }
+                    }
+        
+                    tbody {
+                        tr {
+                            &:nth-child(2n) {
+                                background-color: #efefef !important;
+                                color: #222;
+                            }
+                            td {
+                                border-radius: initial;
+                                padding-left: 30px;
+                                padding-right: 30px;
+                                padding-bottom: 20px;
+                                min-width: 200px;
+                                border-left: 1px solid #222;
+                                // border-right: 1px solid #222;
+        
+                                &:nth-child(1) {
+                                    // min-width: 200px;
+                                }
+        
+                                // &:nth-child(2) {
+                                //     // padding-left: 300px;
+                                // }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .table1 {
+                position: relative;
+                table {
+                    thead {
+                        background-color: white;
                     }
                 }
             }

@@ -10,41 +10,70 @@ const memberData = [['name', 'Name'], ['affiliation', 'Affiliation'],
 class GetFullData extends Component {
     render() {
         let checkIns = this.props.checkIns ? this.props.checkIns : [{}];
+        let total = 0;
         // }
-        // console.log(this.state)
+        console.log(checkIns.length)
         return (
-            <table>
-                <thead>
-                    <tr>
-                        {
-                            memberData.map((dataType, index) => {
-                                return (
-                                    <th className={`column${index + 2}`} key={index} id={index}>{dataType[1]}</th>
-                                )
-                            })
-                        }
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {
-                        checkIns.map((item, index) => {
-                            return (
-                                <tr key={index} id={index}>
+            <div className="center tableContainer">
+                <div className="wrapTable">
+                    <div className="table2 tables">
+                        <table>
+                            <thead className="table1 tables">
+                                <tr>
                                     {
-                                        item.map((itemData, index) => {
-                                            console.log(itemData);
+                                        memberData.map((dataType, index) => {
                                             return (
-                                                <td>{typeof itemData === 'object' ? itemData.total : itemData}</td>
+                                                <th className={`column${index + 2}`} key={index} id={index}>{dataType[1]}</th>
                                             )
                                         })
                                     }
                                 </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </table>
+                            </thead>
+                            <tbody>
+                                {
+                                    checkIns.map((item, index) => {
+                                        total += typeof checkIns[index][8] === 'object' ? checkIns[index][8].total : checkIns[index][8];
+                                        console.log(total);
+                                        let tableRow = <tr key={index} id={index}>
+                                                    {
+                                                        item.map((itemData, index) => {
+                                                            let data = itemData
+                                                            if(typeof itemData === 'object') {
+                                                                data = itemData.total;
+                                                            } else if(typeof itemData === 'boolean') {
+                                                                data = itemData ? 'Yes' : 'No'
+                                                            }
+                                                            return (
+                                                                <td key={index} id={index}>{data}</td>
+                                                            )
+                                                        })
+                                                    }
+                                                </tr> 
+                                        return (
+                                            index === checkIns.length - 1 ?
+                                                <>
+                                                {tableRow}
+                                                <tr key={index + 1} id={index + 1}>
+                                                    {
+                                                        item.map((itemData, index) => {
+                                                            let data = index === 0 ? 'Total' : (index === 1 ? total : false)
+                                                            return (
+                                                                <td style={!data ? {'backgroundColor': '#222', 'border': 'initial'} : {}}>{!data ? '' : data}</td>
+                                                            )
+                                                        })
+                                                    }
+                                                </tr>
+                                                </>
+                                                : 
+                                                tableRow
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
