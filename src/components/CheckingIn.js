@@ -6,24 +6,26 @@ import { firestoreConnect } from 'react-redux-firebase'
 class CheckIns extends Component {
     render() {
         return (
-            <div className="checkIns">
-                <h1 className="checkInDate" style={{ 'background-color': '#f15d5d', 'color': 'white'}}>{this.props.checkInDate.toUpperCase()}</h1>
-                {
-                    this.props.checkIns ?
-                        this.props.checkIns.map((user, index) => {
-                            return (
-                                <div className="center user" key={index}>
-                                    {
-                                        user.affiliation === 'family'
-                                            ?
-                                            <h2>{user.affiliation === 'individual' ? user.totalWatching : user.totalWatching.total} {user.totalWatching > 1 ? 'people' : 'person'} from <span>{user.name}</span></h2>
-                                            :
-                                            <h2><span>{user.name}</span> has checked in.</h2>
-                                    }
-                                </div>
-                            )
-                        }) : <h4 className="red">No one has checked in Yet</h4>
-                }
+            <div className="mainContainer">
+                <div className="checkIns">
+                    <h1 className="checkInDate" style={{ 'background-color': '#f15d5d', 'color': 'white'}}>{this.props.checkInDate.toUpperCase()}</h1>
+                    {
+                        this.props.checkIns ?
+                            this.props.checkIns.map((user, index) => {
+                                return (
+                                    <div className="center user" key={index}>
+                                        {
+                                            user.affiliation === 'family'
+                                                ?
+                                                <h2>{user.affiliation === 'individual' ? user.totalWatching : user.totalWatching.total} {user.totalWatching > 1 ? 'people' : 'person'} from <span>{user.name}</span></h2>
+                                                :
+                                                <h2><span>{user.name}</span> has checked in.</h2>
+                                        }
+                                    </div>
+                                )
+                            }) : <h4 className="red">No one has checked in Yet</h4>
+                    }
+                </div>
             </div>
         )
     }

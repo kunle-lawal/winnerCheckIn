@@ -11,8 +11,6 @@ class GetFullData extends Component {
     render() {
         let checkIns = this.props.checkIns ? this.props.checkIns : [{}];
         let total = 0;
-        // }
-        console.log(checkIns.length)
         return (
             <div className="center tableContainer">
                 <div className="wrapTable">
@@ -33,7 +31,6 @@ class GetFullData extends Component {
                                 {
                                     checkIns.map((item, index) => {
                                         total += typeof checkIns[index][8] === 'object' ? checkIns[index][8].total : checkIns[index][8];
-                                        console.log(total);
                                         let tableRow = <tr key={index} id={index}>
                                                     {
                                                         item.map((itemData, index) => {
@@ -51,19 +48,19 @@ class GetFullData extends Component {
                                                 </tr> 
                                         return (
                                             index === checkIns.length - 1 ?
-                                                <>
+                                                <React.Fragment key={index}>
                                                 {tableRow}
                                                 <tr key={index + 1} id={index + 1}>
                                                     {
                                                         item.map((itemData, index) => {
                                                             let data = index === 0 ? 'Total' : (index === 1 ? total : false)
                                                             return (
-                                                                <td style={!data ? {'backgroundColor': '#222', 'border': 'initial'} : {}}>{!data ? '' : data}</td>
+                                                                <td key={index} style={!data ? {'backgroundColor': '#222', 'border': 'initial'} : {}}>{!data ? '' : data}</td>
                                                             )
                                                         })
                                                     }
                                                 </tr>
-                                                </>
+                                                </React.Fragment>
                                                 : 
                                                 tableRow
                                         )
@@ -81,14 +78,12 @@ class GetFullData extends Component {
 const mapStateToProps = (state, ownProps) => {
     const checkIns = state.firestore.ordered['checkIns/dates/date_' + ownProps.match.params.id];
     let data = [];
-    console.log(checkIns);
     for (let i = 0; i < (checkIns ? checkIns.length : 0); i++) {
         data.push([]);
         for (let y = 0; y < memberData.length; y++) {
             data[i].push(checkIns[i][memberData[y][0]]);
         }
     }
-    // console.log(data);
     return {
         // auth: state.firebase.auth,
         checkIns: data ? data : false,

@@ -622,13 +622,22 @@ body .tableContainer {
   margin: auto;
 }
 body .tableContainer .wrapTable {
-  width: 90%;
+  max-width: 90vw;
+  min-width: 500px;
   height: 600px;
+  max-height: 90vh;
   overflow: auto;
   overflow-y: auto;
   margin: auto;
   background-color: white;
   box-shadow: 5px 5px 3px #b13f3f;
+}
+@media only screen and (max-width: 700px) {
+  body .tableContainer .wrapTable {
+    width: 95vw;
+    max-width: initial;
+    min-width: initial;
+  }
 }
 body .tableContainer .wrapTable .tables table {
   min-width: 2000px;
@@ -643,7 +652,6 @@ body .tableContainer .wrapTable .tables table thead tr th {
   padding-right: 30px;
   border-radius: initial;
   min-width: 200px;
-  border-left: 1px solid #222;
 }
 body .tableContainer .wrapTable .tables table tbody tr:nth-child(2n) {
   background-color: #efefef !important;
@@ -662,6 +670,31 @@ body .tableContainer .wrapTable .table1 {
 }
 body .tableContainer .wrapTable .table1 table thead {
   background-color: white;
+}
+body .getCheckInDate {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+body .getCheckInDate .dates {
+  background-color: #222;
+  color: white;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 10px;
+  padding: 25px;
+  cursor: pointer;
+}
+body .getCheckInDate .dates h4 {
+  margin: initial;
+  color: white;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: 900;
+  font-family: "Quicksand", sans-serif;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -598,13 +598,21 @@ body {
         margin: auto;
         
         .wrapTable {
-            width: 90%;
+            max-width: 90vw;
+            min-width: 500px;
             height: 600px;
+            max-height: 90vh;
             overflow: auto;
             overflow-y: auto;
             margin: auto;
             background-color: white;
             box-shadow: 5px 5px 3px #b13f3f;
+
+            @include screen-size(small) {
+                width: 95vw;
+                max-width: initial;
+                min-width: initial;
+            }
             .tables {
                 table {
                     min-width:2000px;
@@ -619,7 +627,7 @@ body {
                                 padding-right: 30px;
                                 border-radius: initial;
                                 min-width: 200px;
-                                border-left: 1px solid #222;
+                                // border-left: 1px solid #222;
                                 // border-right: 1px solid #222;
                                 
                                 &:nth-child(1) {
@@ -668,6 +676,34 @@ body {
                         background-color: white;
                     }
                 }
+            }
+        }
+    }
+
+    .getCheckInDate {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        .dates {
+            background-color: #222;
+            color: white;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin: 10px;
+            padding: 25px;
+            cursor: pointer;
+
+            h4 {
+                margin: initial;
+                color: white;
+                display: block;
+                width: 100%;
+                // border: 1px solid red;
+                text-align: center;
+                font-weight: 900;
+                font-family: $quicksand;
             }
         }
     }
