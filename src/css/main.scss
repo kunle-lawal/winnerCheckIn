@@ -683,6 +683,10 @@ body {
     .getCheckInDate {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+
+        @include screen-size(small) {
+            display: block;
+        }
         .dates {
             background-color: #222;
             color: white;
@@ -694,6 +698,11 @@ body {
             margin: 10px;
             padding: 25px;
             cursor: pointer;
+
+            @include screen-size(small) {
+                width: 100%;
+                margin: 10px 0;
+            }
 
             h4 {
                 margin: initial;

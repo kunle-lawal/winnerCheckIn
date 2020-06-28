@@ -675,6 +675,11 @@ body .getCheckInDate {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+@media only screen and (max-width: 700px) {
+  body .getCheckInDate {
+    display: block;
+  }
+}
 body .getCheckInDate .dates {
   background-color: #222;
   color: white;
@@ -686,6 +691,12 @@ body .getCheckInDate .dates {
   margin: 10px;
   padding: 25px;
   cursor: pointer;
+}
+@media only screen and (max-width: 700px) {
+  body .getCheckInDate .dates {
+    width: 100%;
+    margin: 10px 0;
+  }
 }
 body .getCheckInDate .dates h4 {
   margin: initial;

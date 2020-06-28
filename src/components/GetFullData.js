@@ -25,6 +25,9 @@ class GetFullData extends Component {
                                             )
                                         })
                                     }
+                                    <th>Females</th>
+                                    <th>Males</th>
+                                    <th>Kids</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,14 +37,16 @@ class GetFullData extends Component {
                                         let tableRow = <tr key={index} id={index}>
                                                     {
                                                         item.map((itemData, index) => {
-                                                            let data = itemData
+                                                            let data = itemData;
                                                             if(typeof itemData === 'object') {
                                                                 data = itemData.total;
                                                             } else if(typeof itemData === 'boolean') {
                                                                 data = itemData ? 'Yes' : 'No'
+                                                            } else if(data === 'empty') {
+                                                                data = '';
                                                             }
                                                             return (
-                                                                <td key={index} id={index}>{data}</td>
+                                                                <td key={index} id={index} style={data === '' ? {'backgroundColor': 'rgb(216, 215, 215)'} : {}}>{data}</td>
                                                             )
                                                         })
                                                     }
@@ -55,7 +60,7 @@ class GetFullData extends Component {
                                                         item.map((itemData, index) => {
                                                             let data = index === 0 ? 'Total' : (index === 1 ? total : false)
                                                             return (
-                                                                <td key={index} style={!data ? {'backgroundColor': '#222', 'border': 'initial'} : {}}>{!data ? '' : data}</td>
+                                                                <td key={index} style={!data ? {'backgroundColor': 'rgb(241, 93, 93)', 'border': 'initial'} : {}}>{!data ? '' : data}</td>
                                                             )
                                                         })
                                                     }
@@ -81,8 +86,35 @@ const mapStateToProps = (state, ownProps) => {
     for (let i = 0; i < (checkIns ? checkIns.length : 0); i++) {
         data.push([]);
         for (let y = 0; y < memberData.length; y++) {
-            data[i].push(checkIns[i][memberData[y][0]]);
+            let value = checkIns[i][memberData[y][0]];
+            // console.log(memberData[y][0]);
+            // console.log(value);
+            let hasObject = typeof checkIns[i].totalWatching === 'object';
+            console.log(hasObject);
+            if(memberData[y][0] === 'totalWatching') {
+                if(typeof value === 'object') {
+                    hasObject = true;
+                    data[i].push(value.total);
+                    data[i].push(value.females);
+                    data[i].push(value.kids);
+                    data[i].push(value.males);
+                } else {
+                    data[i].push(value);
+                    data[i].push('empty');
+                    data[i].push('empty');
+                    data[i].push('empty');
+                }
+            } else if(memberData[y][0] === 'gender') {
+                if(hasObject) {
+                    data[i].push('empty');
+                } else {
+                    data[i].push(value);
+                }
+            } else {
+                data[i].push(value);
+            }
         }
+        console.log('_______----_______')
     }
     return {
         // auth: state.firebase.auth,
