@@ -28,3 +28,15 @@ export const checkInUser = (data) => {
         })
     }
 }
+
+export const addDates = (data) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        const  firebase = getFirebase();
+        const firestore = getFirestore();
+        const auth = firebase.auth();
+        // console.log(data)
+        firestore.collection('checkIns').doc('dates').set({
+            dates: data
+        }, { merge: true })
+    }
+}

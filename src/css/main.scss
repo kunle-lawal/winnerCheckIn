@@ -680,6 +680,10 @@ body {
         }
     }
 
+    .pickData {
+        max-height: 100%;
+    }
+
     .getCheckInDate {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;

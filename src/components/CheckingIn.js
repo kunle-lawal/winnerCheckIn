@@ -12,12 +12,13 @@ class CheckIns extends Component {
                     {
                         this.props.checkIns ?
                             this.props.checkIns.map((user, index) => {
+                                console.log(user.totalWatching);
                                 return (
                                     <div className="center user" key={index}>
                                         {
                                             user.affiliation === 'family'
                                                 ?
-                                                <h2>{user.affiliation === 'individual' ? user.totalWatching : user.totalWatching.total} {user.totalWatching > 1 ? 'people' : 'person'} from <span>{user.name}</span></h2>
+                                                <h2>{user.affiliation === 'individual' ? user.totalWatching : user.totalWatching.total} people from <span>{user.name}</span></h2>
                                                 :
                                                 <h2><span>{user.name}</span> has checked in.</h2>
                                         }
