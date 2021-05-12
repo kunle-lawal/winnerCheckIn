@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@grpc/grpc-js": "^1.1.1",
+        "@grpc/grpc-js": "^1.1.8",
         "babel-polyfill": "^6.26.0",
         "firebase": "^7.17.1",
         "node-pre-gyp": "^0.15.0",
